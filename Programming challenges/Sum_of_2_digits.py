@@ -3,7 +3,7 @@ print("\t\t\t\t***  SUM OF 2 DIGITS  ***")
 print("\t**********************************************")
 
 answer = (input("What are the 2 numbers: ").split(" "))
-num_list = ([int(number) for number in answer])
+num_list = [int(number) for number in answer]
 if len(num_list) < 2:
     print("You gave one number")
 else:

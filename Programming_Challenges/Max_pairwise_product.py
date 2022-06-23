@@ -1,18 +1,14 @@
-import time
-
-
-def max_product(elements):
-    max_nb1 = max(elements)
-    max_nb2 = 0
-    for element in elements:
-        if max_nb1 > element > max_nb2:
-            max_nb2 = element
-    return max_nb1 * max_nb2
+def max_product(nb_element, elements):
+    product = 0
+    for first_index in range(nb_element):
+        for second_index in range(first_index + 1, nb_element):
+            product = max(product, elements[first_index] * elements[second_index])
+    return product
 
 
 if __name__ == '__main__':
     input_n = int(input())
     enter = (input().split(" "))
     num_list = [int(number) for number in enter]
-    print(max_product(num_list))
+    print(max_product(input_n, num_list))
 

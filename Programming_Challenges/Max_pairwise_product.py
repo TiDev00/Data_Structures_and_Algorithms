@@ -9,11 +9,10 @@ def max_product(elements):
             max_nb2 = element
     return max_nb1 * max_nb2
 
-start = time.time()
+
 if __name__ == '__main__':
     input_n = int(input())
     enter = (input().split(" "))
     num_list = [int(number) for number in enter]
     print(max_product(num_list))
-end = time.time()
-print(end-start)
+

@@ -19,4 +19,12 @@ def fast_pgcd(first_number, second_number):
 
 if __name__ == '__main__':
     list_numbers = input("Give the 2 numbers: ").split(" ")
+    start1 = time.time()
+    print(naive_pgcd(int(list_numbers[0]), int(list_numbers[1])))
+    end1 = time.time()
+    print("Naive Time: ", end1 - start1)
+    start2 = time.time()
     print(fast_pgcd(int(list_numbers[0]), int(list_numbers[1])))
+    end2 = time.time()
+    print("Fast time: ", end2 - start2)
+    print("difference: ", (end2 - start2) - (end1 - start1))

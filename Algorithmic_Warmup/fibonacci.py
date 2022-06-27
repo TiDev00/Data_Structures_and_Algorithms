@@ -28,4 +28,4 @@ if __name__ == '__main__':
     print(fast_fibonacci(searched_fib))
     end2 = time.time()
     print("Fast time: ", end2-start2)
-    print("difference: ", (end1-start1)-(end2-start2))
+    print("difference: ", (end2 - start2) - (end1 - start1))

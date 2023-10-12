@@ -1,3 +1,4 @@
+# Sum of the 2 greatest numbers in a list
 def max_product(elements):
     first_max = max(elements)
     elements.remove(first_max)

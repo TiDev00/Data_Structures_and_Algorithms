@@ -10,6 +10,7 @@ namespace Algorithmic_Warmup
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

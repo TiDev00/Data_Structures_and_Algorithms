@@ -10,7 +10,7 @@ namespace Algorithmic_Warmup
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Test");
         }
     }
 }

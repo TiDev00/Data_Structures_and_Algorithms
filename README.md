@@ -1,4 +1,4 @@
-### Data Structures and Algorithms by University of California San Diego & HSE University
+### Data Structures and Algorithms
 
 Enhance your Software Engineering or Data Science Journey with Algorithmic Programming Mastery. 
 Elevate your skills by delving into the world of algorithms through programming and puzzle-solving.

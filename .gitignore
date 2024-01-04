@@ -2,3 +2,9 @@
 venv
 .DS_Store
 .vs
+out
+*.iml
+*.csproj
+bin
+obj
+*.sln

@@ -74,10 +74,10 @@ public class basics {
 
         // LIST
 
-        ArrayList<Character> maliste = new ArrayList<>();
+        List<Character> maliste = new ArrayList<>();
         System.out.println(maliste);
 
-        ArrayList<Integer> ml = new ArrayList<>();
+        List<Integer> ml = new ArrayList<>();
         ml.add(7);
         ml.add(1);
         ml.add(5);
@@ -106,4 +106,5 @@ public class basics {
         }
         ml.clear();
     }
+
 }

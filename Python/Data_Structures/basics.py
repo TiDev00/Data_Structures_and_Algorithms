@@ -1,7 +1,3 @@
-from collections import *
-from array import *
-from queue import *
-
 entier = 1
 reel = 1.0
 chaine = "1"
@@ -39,7 +35,7 @@ mot = list(chaine2)  # Convert 'chaine2' to a list of characters
 
 maliste = [4, 1, 3, 6, 10, 9]
 
-# methode speciales
+# methodes speciales
 
 print(len(maliste))  # Prints the length of the list
 
@@ -130,5 +126,3 @@ del myDict  # Deletes the entire dictionary myDict from memory
 myDict1.popitem()  # From python 3.7 Removes and returns the last inserted key-value pair else select an arbitrary pair
 
 myDict1.clear()  # Clear all data in dictionary
-
-

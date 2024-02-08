@@ -1,128 +1,96 @@
-entier = 1
-reel = 1.0
-chaine = "1"
+# Character and String Operations
+carac = 'a'
+test = True
+chaine = "12345"
 chaine2 = "test mot2"
-nombre = int(chaine)
-vrai = True
+numb = 1
+conv2 = int(chaine)
+numb3 = float(numb)
+grand = 5
+numb1 = "1"
+conv = float(numb1)
+virgule = 1.0
+virgule_big = 244.5
 
-# char and String methods
-print(str.lower('A'))  # Convert 'A' to lowercase
-print(str.upper('x'))  # Convert 'x' to uppercase
-print(str.isdigit('w'))  # Check if 'w' is a digit
-print(str.isalpha('2'))  # Check if '2' is a letter
-print('q'.isupper())  # Check if 'q' is uppercase
-print('W'.islower())  # Check if 'W' is lowercase
+# Character methods in Python
+print('A'.lower())  # Converts 'A' to lowercase and prints 'a'
+print('x'.upper())  # Converts 'x' to uppercase and prints 'X'
+print('w'.isdigit())  # Checks if 'w' is a digit (prints False)
+print('2'.isalpha())  # Checks if '2' is a letter (prints False)
+print('q'.isupper())  # Checks if 'q' is uppercase (prints False)
+print('W'.islower())  # Checks if 'W' is lowercase (prints False)
 
-print(len(chaine2))  # Get the length of the string
-print('u' in chaine2)  # Check if 'chaine2' contains "u"
-print(chaine2.endswith("a"))  # Check if 'chaine2' ends with "a"
-print(chaine2.startswith("b"))  # Check if 'chaine2' starts with "b"
-print(chaine2[1:3])  # Get substring from index 1 to 2 (exclusive)
-print(chaine2.upper())  # Convert 'chaine2' to uppercase
-print(chaine2.lower())  # Convert 'chaine2' to lowercase
-print(chaine2[3])  # Get character at index 3
-print(chaine2.find('s'))  # Get index of 's' in 'chaine2'
-print(chaine2.rfind('t'))  # Get last index of 't' in 'chaine2'
-print(chaine2.replace('t', 'A'))  # Replace 't' with 'A' in 'chaine2'
+# String operations
+print(chaine2[3])  # Retrieves the character at index 3 in 'chaine2'
+print(len(chaine2))  # Prints the length of the string 'chaine2'
+print(chaine2.upper())  # Converts 'chaine2' to uppercase
+print(chaine2.lower())  # Converts 'chaine2' to lowercase
 
-mots = chaine2.split(" ")  # Split 'chaine2' by space into a list of strings
-print(chaine2 == "")  # Check if 'chaine2' is empty
-print(chaine2.isspace())  # Check if 'chaine2' contains only whitespace
+# Splitting strings
+mots = chaine2.split()  # Splits 'chaine2' into a list of strings using space as the delimiter
+mot = list(chaine2)  # Converts 'chaine2' to a list of characters
 
-mot = list(chaine2)  # Convert 'chaine2' to a list of characters
+# LINEAR DATA STRUCTURES
+nbTab = list(range(15, 21))
+tab3 = nbTab[:2]
 
-# LIST ou Array
+arrlist0 = [1, 2, 3]
+arrlist = nbTab.copy()
+arrlist.append(1)
+arrlist.append(5)
+t0 = len(arrlist)
+arrlist.remove(5)   # remove first occurence of value 5
+arrlist.pop()   # remove elt at index (last index default)
+arrlist.pop(0)  # remove first elt
+c0 = 2 in arrlist
+r0 = arrlist[2]
+arrlist[0] = 10
+print(len(arrlist) == 0)
+print(arrlist)
 
-maliste = [4, 1, 3, 6, 10, 9]
+# Using lists as stacks and queues
+st = []
+st.append('a')
+st.append('b')
+st.append('c')
+print(st[-1])
+print('a' in st)
+print(st.pop())
+print(len(st) == 0)
+print(st)
+st.clear()
 
-# methodes speciales
+q = []
+q.append(1)
+q.append(2)
+q.append(3)
+print(q[0])
+print(q.pop(0))
+print(1 in q)
+print(len(q) == 0)
+print(q)
 
-print(len(maliste))  # Prints the length of the list
+# NON LINEAR DATA STRUCTURES
 
-maliste.sort()  # Sorts the list in ascending order
-print(maliste)
+# Dictionaries in Python
+m0 = {1: "v1", 2: "v2", 3: "v3"}
+m = m0.copy()
+m[50] = "v50"
+m[75] = "Nothing"
+t3 = len(m)
+del m[3]
+ck = 2 in m
+cv = "George" in m.values()
+val = m.get(50)
+print(m)
 
-maliste.sort(reverse=True)  # Sorts the list in descending order
-print(maliste)
+for key in m:
+    k = key
 
-maliste.append('lettre')  # Adds 'lettre' to the end of the list
-print(maliste)
+for value in m.values():
+    v = value
 
-liste2 = maliste.copy()  # Creates a copy of maliste and assigns it to liste2
-print(liste2)
-
-liste2.remove(10)  # Removes the first occurrence of the value 10 from liste2
-print(liste2)
-
-print(liste2.pop())  # Removes and returns the last element from liste2
-print(liste2)
-
-liste2.pop(3)  # Removes the element at index 3 from liste2
-print(liste2)
-
-liste2.insert(0, 'orange')  # Inserts 'orange' at index 0 in liste2
-print(liste2)
-
-print(liste2.count('orange'))  # Counts the occurrences of 'orange' in liste2
-
-print(liste2.index('orange'))  # Returns the index of the first occurrence of 'orange' in liste2
-
-print("orange" in liste2)  # Checks if 'orange' is in liste2
-
-# SET
-
-monset = {1, "deux", False}
-
-print(len(monset))  # Prints the length of the set `monset`
-
-monset.add("chiffre")  # Adds the element "chiffre" to the set `monset`
-print(monset)  # Prints the contents of the modified set `monset`
-
-monset2 = monset.copy()  # Creates a copy of the set `monset` named `monset2`
-
-print(monset.union({1, 5, 6}))  # Prints the union of `monset` and the set {1, 5, 6}
-print(monset.intersection({1, 5, 6}))  # Prints the intersection of `monset` and the set {1, 5, 6}
-print(monset.difference({1, 5, 6}))  # Prints the difference between `monset` and the set {1, 5, 6}
-
-print(monset.issubset({1, 5, 6}))  # Checks if `monset` is a subset of the set {1, 5, 6} and prints True or False
-print(monset.issuperset({1, 5, 6}))  # Checks if `monset` is a superset of the set {1, 5, 6} and prints True or False
-
-monset.remove(1)  # Removes the element 1 from the set `monset`
-print(monset.pop())  # Removes and returns an arbitrary element from `monset`, then prints it
-
-print('orange' in monset)  # Checks if 'orange' is present in the set `monset` and prints True or False
-
-# TUPLE
-
-tuple1 = ('orange', True)
-print(tuple1)
-print(tuple1.count('orange'))
-print(tuple1.index('orange'))
-
-# DICTIONNARY
-
-myDict = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
-
-print(myDict)  # Prints the dictionary myDict: {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
-
-myDict['append1'] = 'value1'  # Adds a new key 'append1' with value 'value1' to myDict
-
-print(myDict.keys())  # Prints the keys of myDict: dict_keys(['key1', 'key2', 'key3', 'append1'])
-
-print(myDict.values())  # Prints the values of myDict: dict_values(['value1', 'value2', 'value3', 'value1'])
-
-print(myDict.items())  # Prints the key-value pairs of myDict: dict_items([('key1', 'value1'), ('key2', 'value2')...])
-
-print(myDict['key1'])  # Prints the value associated with 'key1': 'value1'
-
-myDict.pop('key2')  # Removes the key 'key2' and its associated value from myDict
-
-del myDict['key3']  # Deletes the key 'key3' and its associated value from myDict
-
-myDict1 = myDict.copy()  # Creates a copy of myDict named myDict1
-
-del myDict  # Deletes the entire dictionary myDict from memory
-
-myDict1.popitem()  # From python 3.7 Removes and returns the last inserted key-value pair else select an arbitrary pair
-
-myDict1.clear()  # Clear all data in dictionary
+for key, value in m.items():
+    keys = key
+    values = value
+m.clear()

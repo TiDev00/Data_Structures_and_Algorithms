@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace CSharp.Data_Structures.Arrays;
 
 public class MyArray
@@ -94,7 +92,7 @@ public class MyArray
         }
     }
     
-    public static void Main(string[] args)
+    void Main(string[] args)
     {
         MyArray arr = new MyArray();
         arr.Push(45);

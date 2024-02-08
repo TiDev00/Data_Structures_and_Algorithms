@@ -54,7 +54,7 @@ public class MyArray {
     }
 
     // Remove and return last element of the array
-    public Object Pop() throws Exception {
+    public Object Pop() {
         if (this.length > 0)
         {
             Object item = this.data[this.length - 1];
@@ -63,11 +63,11 @@ public class MyArray {
             return item;
         }
 
-        throw new Exception("Array is empty");
+        throw new UnsupportedOperationException("Array is empty");
     }
 
     // Shift index of object to left
-    public void Shift(Object[] objectDict, int size, int number)
+    public static void Shift(Object[] objectDict, int size, int number)
     {
         for (int i = number; i < size - 1; i++) {
             objectDict[i] = objectDict[i + 1];
@@ -89,7 +89,7 @@ public class MyArray {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         MyArray arr = new MyArray();
         arr.Push(45);
         arr.Push(10);

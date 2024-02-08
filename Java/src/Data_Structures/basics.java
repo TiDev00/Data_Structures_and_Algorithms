@@ -10,7 +10,6 @@ public class basics {
         String chaine = "12345";
         String chaine2 = "test mot2";
         int numb = 1;
-        // Utlisation de la conversion explicite si conversion entre type numeric et parsing pour les string
         long conv2 = Long.parseLong(chaine);
         float numb3 = (float)(numb);
         long grand = 5;
@@ -19,7 +18,6 @@ public class basics {
         float virgule = 1.0f;
         double virgule_big = 244.5;
 
-        // char and String methods
         System.out.println(Character.toLowerCase('A')); // Converts 'A' to lowercase and prints 'a'
         System.out.println(Character.toUpperCase('x')); // Converts 'x' to uppercase and prints 'X'
         System.out.println(Character.isDigit('w')); // Checks if 'w' is a digit (prints 'false')
@@ -27,84 +25,105 @@ public class basics {
         System.out.println(Character.isUpperCase('q')); // Checks if 'q' is uppercase (prints 'false')
         System.out.println(Character.isLowerCase('W')); // Checks if 'W' is lowercase (prints 'false')
 
+        System.out.println(chaine2.charAt(3)); // Retrieves the character at index 3 in 'chaine2'
         System.out.println(chaine2.length()); // Prints the length of the string 'chaine2'
-        System.out.println(chaine2.contains("u")); // Checks if 'chaine2' contains 'u' (prints 'true' or 'false')
-        System.out.println(chaine2.endsWith("a")); // Checks if 'chaine2' ends with 'a' (prints 'true' or 'false')
-        System.out.println(chaine2.startsWith("b")); // Checks if 'chaine2' starts with 'b' (prints 'true' or 'false')
-        System.out.println(chaine2.substring(1, 3)); // Retrieves a substring from index 1 to index 2 (prints characters at indices 1 and 2)
         System.out.println(chaine2.toUpperCase()); // Converts 'chaine2' to uppercase
         System.out.println(chaine2.toLowerCase()); // Converts 'chaine2' to lowercase
-        System.out.println(chaine2.charAt(3)); // Retrieves the character at index 3 in 'chaine2'
-        System.out.println(chaine2.indexOf('s')); // Finds the index of 's' in 'chaine2' (prints the index or -1 if not found)
-        System.out.println(chaine2.lastIndexOf('t')); // Finds the last index of 't' in 'chaine2'
-        System.out.println(chaine2.replace('t', 'A')); // Replaces all occurrences of 't' with 'A' in 'chaine2'
 
         String[] mots = chaine2.split(" "); // Splits 'chaine2' into an array of strings using space as the delimiter
-        System.out.println(chaine2.isEmpty()); // Checks if 'chaine2' is empty (prints 'true' or 'false')
-        System.out.println(chaine2.isBlank()); // Checks if 'chaine2' is blank (contains only white spaces) (prints 'true' or 'false')
-
         char[] mot = chaine2.toCharArray(); // Converts 'chaine2' to a character array
+        String[] letters = chaine2.split("");
 
+        // LINEAR DATA STRUCTURES
 
-        // ARRAY
+        Integer[] nbTab = new Integer[6];
+        int j = 0;
+        for (int i = 15; i <= 20; i++){
+            nbTab[j] = i;
+            j++;
+        }
+        Integer[] tab3 = Arrays.copyOf(nbTab, 2);
 
-        int[] tab = new int[3];
-        char[] tab2 = {'1', '3', '2'};
-        System.out.println(tab2);
+        ArrayList<Integer> arrlist0 = new ArrayList<>(List.of(1,2,3));
+        ArrayList<Integer> arrlist = new ArrayList<>(Arrays.asList(nbTab));
+        arrlist.add(1);
+        int t0 = arrlist.size();
+        arrlist.remove(0);
+        boolean c0 = arrlist.contains(2);
+        int r0 = arrlist.get(2);
+        arrlist.set(0, 10);
+        System.out.println(arrlist.isEmpty());
+        System.out.println(arrlist);
 
-        for(int entier : tab)
-        {
-            System.out.println(entier);
+        LinkedList<Integer> ll = new LinkedList<>(Arrays.asList(nbTab));
+        ll.add(45);
+        int t1 = arrlist.size();
+        arrlist.remove(0);
+        boolean c1 = arrlist.contains(2);
+        int r1 = arrlist.get(2);
+        arrlist.set(0, 10);
+        System.out.println(ll.getFirst());
+        System.out.println(ll.getLast());
+        System.out.println(ll.isEmpty());
+        System.out.println(ll);
+
+        Set<Integer> s = new HashSet<>(ll);
+        ll.add(4);
+        int t2 = arrlist.size();
+        arrlist.remove(0);
+        boolean c2 = arrlist.contains(2);
+        int r2 = arrlist.get(2);
+        arrlist.set(0, 10);
+        System.out.println(s.isEmpty());
+        System.out.println(s);
+
+        Stack<Character> st = new Stack<>();
+        st.push('a');
+        st.push('b');
+        st.push('c');
+        System.out.println(st.peek());
+        System.out.println(st.contains('a'));
+        System.out.println(st.pop());
+        System.out.println(st.isEmpty());
+        System.out.println(st);
+        st.clear();
+
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        System.out.println(q.peek());
+        System.out.println(q.poll());
+        System.out.println(q.contains(1));
+        System.out.println(q.isEmpty());
+        System.out.println(q);
+
+        // NON LINEAR DATA STRUCTURES
+
+        // Dictionary
+        Map<Integer, String> m0 = new HashMap<>(Map.of(1,"v1",2,"v2",3,"v3"));
+        Map<Integer, String> m = new HashMap<>(m0);
+        m.put(50, "v50");
+        m.replace(75, "Nothing");
+        int t3 = m.size();
+        m.remove(3);
+        boolean ck = m.containsKey(2);
+        boolean cv = m.containsValue("George");
+        String val = m.get(50);
+        System.out.println(m);
+
+        for (int key : m.keySet()){
+            int k = key;
         }
 
-        System.out.println();
-
-        for(int index = 0; index < tab2.length; index++)
-        {
-            System.out.println(tab2[index]);
+        for (String value : m.values()){
+            String v = value;
         }
 
-        System.out.println();
-
-        // Methodes speciales array
-
-        Arrays.sort(tab2);
-        System.out.println(tab2);
-        char[] tab3 = Arrays.copyOf(tab2, 2);
-
-        // LIST
-
-        List<Character> maliste = new ArrayList<>();
-        System.out.println(maliste);
-
-        List<Integer> ml = new ArrayList<>();
-        ml.add(7);
-        ml.add(1);
-        ml.add(5);
-        for(int entier : ml)
-        {
-            System.out.println(entier);
+        for(Map.Entry<Integer, String> entry : m.entrySet()){
+            Integer keys = entry.getKey();
+            String values = entry.getValue();
         }
-
-        // Methodes speciales list
-
-        ml.sort(null);
-        for(int var : ml)
-        {
-            System.out.println(var);
-        }
-
-        System.out.println(ml.contains(3));
-        System.out.println(ml.size());
-        System.out.println(ml.indexOf(1));
-        ml.add(0, 9);
-        ml.remove(1);
-        System.out.println();
-        for(int var : ml)
-        {
-            System.out.println(var);
-        }
-        ml.clear();
+        m.clear();
     }
-
 }

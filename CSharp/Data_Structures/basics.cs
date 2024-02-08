@@ -4,122 +4,129 @@ public class basics
 {
     void Main(string[] args)
     {
-        // Characters, String, int, float, double
         char carac = 'a';
-        String chaine2 = "test mot2";
+        bool test = true;
+        string chaine = "12345";
+        string chaine2 = "test mot2";
         int numb = 1;
-        long grand = numb;
-        bool test = false;
-        String numb1 = "1";
-        // Utlisation de la conversion explicite si conversion entre type numeric et parsing pour les string
+        long conv2 = long.Parse(chaine);
+        float numb3 = (float)numb;
+        long grand = 5;
+        string numb1 = "1";
         double conv = double.Parse(numb1);
-        double conversion1 = Convert.ToDouble(numb1);
         float virgule = 1.0f;
         double virgule_big = 244.5;
 
-        // char and String methods
-        Console.WriteLine(char.ToLower('A')); // Converts 'A' to lowercase: 'a'
-        Console.WriteLine(char.ToUpper('x')); // Converts 'x' to uppercase: 'X'
-        Console.WriteLine(char.IsDigit('w')); // Checks if 'w' is a digit (false)
-        Console.WriteLine(char.IsLetter('2')); // Checks if '2' is a letter (false)
-        Console.WriteLine(char.IsUpper('q')); // Checks if 'q' is uppercase (false)
-        Console.WriteLine(char.IsLower('W')); // Checks if 'W' is lowercase (false)
+        Console.WriteLine(char.ToLower('A')); // Converts 'A' to lowercase and prints 'a'
+        Console.WriteLine(char.ToUpper('x')); // Converts 'x' to uppercase and prints 'X'
+        Console.WriteLine(char.IsDigit('w')); // Checks if 'w' is a digit (prints 'false')
+        Console.WriteLine(char.IsLetter('2')); // Checks if '2' is a letter (prints 'false')
+        Console.WriteLine(char.IsUpper('q')); // Checks if 'q' is uppercase (prints 'false')
+        Console.WriteLine(char.IsLower('W')); // Checks if 'W' is lowercase (prints 'false')
 
-        Console.WriteLine(chaine2.Length); // Prints the length of the string
-        Console.WriteLine(chaine2.Contains('a')); // Checks if 'chaine2' contains 'a'
-        Console.WriteLine(chaine2.EndsWith('a')); // Checks if 'chaine2' ends with 'a'
-        Console.WriteLine(chaine2.StartsWith('b')); // Checks if 'chaine2' starts with 'b'
-        Console.WriteLine(chaine2.Substring(1, 3)); // Retrieves substring starting from index 1 with length 3
+        Console.WriteLine(chaine2[3]); // Retrieves the character at index 3 in 'chaine2'
+        Console.WriteLine(chaine2.Length); // Prints the length of the string 'chaine2'
         Console.WriteLine(chaine2.ToUpper()); // Converts 'chaine2' to uppercase
         Console.WriteLine(chaine2.ToLower()); // Converts 'chaine2' to lowercase
-        Console.WriteLine(chaine2[3]); // Retrieves character at index 3 in 'chaine2'
-        Console.WriteLine(chaine2.IndexOf('t')); // Gets the first index of 't' in 'chaine2'
-        Console.WriteLine(chaine2.LastIndexOf('t')); // Gets the last index of 't' in 'chaine2'
-        Console.WriteLine(chaine2.Replace('t', 'A')); // Replaces all occurrences of 't' with 'A' in 'chaine2'
 
-        String[] mots = chaine2.Split(' '); // Splits 'chaine2' into an array of strings based on spaces
-        Console.WriteLine(String.IsNullOrEmpty(chaine2)); // Checks if 'chaine2' is null or empty (not null or empty -> false)
-        Console.WriteLine(String.IsNullOrWhiteSpace(chaine2)); // Checks if 'chaine2' is null, empty, or whitespace (not whitespace -> false)
+        string[] mots = chaine2.Split(' '); // Splits 'chaine2' into an array of strings using space as the delimiter
+        char[] mot = chaine2.ToCharArray(); // Converts 'chaine2' to a character array
+        string[] letters = chaine2.Split("");
 
-        char[] mot = chaine2.ToCharArray(); // Converts 'chaine2' into an array of characters
+        // LINEAR DATA STRUCTURES
 
-
-        // ARRAY
-
-        int[] tab = new int[3]; 
-        char[] tab2 = {'1', '3', '2'};
-
-        Console.WriteLine();
-
-        for(int index = 0; index < tab2.Length; index++)
+        int[] nbTab = new int[6];
+        int j = 0;
+        for (int i = 15; i <= 20; i++)
         {
-            Console.WriteLine(tab2[index]);
+            nbTab[j] = i;
+            j++;
+        }
+        int[] tab3 = nbTab.Take(2).ToArray();
+
+        List<int> arrlist0 = new List<int> { 1, 2, 3 };
+        List<int> arrlist = new List<int>(nbTab);
+        arrlist.Add(1);
+        int t0 = arrlist.Count;
+        arrlist.RemoveAt(0);
+        bool c0 = arrlist.Contains(2);
+        int r0 = arrlist[2];
+        arrlist[0] = 10;
+        Console.WriteLine(arrlist.Count == 0);
+        Console.WriteLine(string.Join(", ", arrlist));
+
+        LinkedList<int> ll = new LinkedList<int>(nbTab);
+        ll.AddLast(45);
+        int t1 = arrlist.Count;
+        arrlist.RemoveAt(0);
+        bool c1 = arrlist.Contains(2);
+        int r1 = arrlist[2];
+        arrlist[0] = 10;
+        Console.WriteLine(ll.First.Value);
+        Console.WriteLine(ll.Last.Value);
+        Console.WriteLine(ll.Count == 0);
+        Console.WriteLine(string.Join(", ", ll));
+
+        HashSet<int> s = new HashSet<int>(ll);
+        ll.AddLast(4);
+        int t2 = arrlist.Count;
+        arrlist.RemoveAt(0);
+        bool c2 = arrlist.Contains(2);
+        int r2 = arrlist[2];
+        arrlist[0] = 10;
+        Console.WriteLine(s.Count == 0);
+        Console.WriteLine(string.Join(", ", s));
+
+        Stack<char> st = new Stack<char>();
+        st.Push('a');
+        st.Push('b');
+        st.Push('c');
+        Console.WriteLine(st.Peek());
+        Console.WriteLine(st.Contains('a'));
+        Console.WriteLine(st.Pop());
+        Console.WriteLine(st.Count == 0);
+        Console.WriteLine(string.Join(", ", st));
+        st.Clear();
+
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(1);
+        q.Enqueue(2);
+        q.Enqueue(3);
+        Console.WriteLine(q.Peek());
+        Console.WriteLine(q.Dequeue());
+        Console.WriteLine(q.Contains(1));
+        Console.WriteLine(q.Count == 0);
+        Console.WriteLine(string.Join(", ", q));
+
+        // NON LINEAR DATA STRUCTURES
+
+        // Dictionary
+        Dictionary<int, string> m0 = new Dictionary<int, string> { { 1, "v1" }, { 2, "v2" }, { 3, "v3" } };
+        Dictionary<int, string> m = new Dictionary<int, string>(m0);
+        m[50] = "v50";
+        m[75] = "Nothing";
+        int t3 = m.Count;
+        m.Remove(3);
+        bool ck = m.ContainsKey(2);
+        bool cv = m.ContainsValue("George");
+        string val = m[50];
+        Console.WriteLine(string.Join(", ", m.Select(kv => kv.Key + "=" + kv.Value)));
+
+        foreach (int key in m.Keys)
+        {
+            int k = key;
         }
 
-        Console.WriteLine();
-
-        // Methodes speciales array 
-
-        Array.Sort(tab2);
-        Console.WriteLine(tab2);
-
-        Array.Reverse(tab2);
-        Console.WriteLine(tab2);
-
-        Console.WriteLine(Array.IndexOf(tab2, '1'));
-        Console.WriteLine();
-
-        char[] tab3 = new char[2];
-        Array.Copy(tab2, tab3, 2);
-
-        // LIST
-
-        List<char> maliste = new List<char>();
-        List<int> ml = new List<int> {4,1,2,5};
-        foreach (int entier in ml)
+        foreach (string value in m.Values)
         {
-            Console.WriteLine(entier);
+            string v = value;
         }
 
-        // Methodes speciales list
-
-        ml.Sort();
-        foreach (int var in ml)
+        foreach (KeyValuePair<int, string> entry in m)
         {
-            Console.WriteLine(var);
+            int keys = entry.Key;
+            string values = entry.Value;
         }
-
-        ml.Reverse();
-        foreach (int var in ml)
-        {
-            Console.WriteLine(var);
-        }
-
-        ml.Add(7);
-        foreach (int var in ml)
-        {
-            Console.WriteLine(var);
-        }
-
-        Console.WriteLine(ml.Contains(3));
-
-        Console.WriteLine(ml.Count);
-
-        Console.WriteLine(ml.IndexOf(2));
-
-        ml.Insert(0, 9);
-
-        ml.Remove(7);
-
-        ml.RemoveAt(1);
-        Console.WriteLine();
-
-        foreach (int var in ml)
-        {
-            Console.WriteLine(var);
-        }
-
-        ml.Clear();
-
+        m.Clear();
     }
 }

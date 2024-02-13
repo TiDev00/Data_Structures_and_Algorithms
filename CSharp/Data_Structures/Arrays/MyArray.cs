@@ -2,10 +2,9 @@ namespace CSharp.Data_Structures.Arrays;
 
 public class MyArray
 {
-    private int capacity;
-    private int length;
-    private object[] data;
-    
+    int capacity;
+    int length;
+    object[] data;
 
     public MyArray()
     {
@@ -13,86 +12,88 @@ public class MyArray
         length = 0;
         data = new object[capacity];
     }
-    
+
     // Display elements of the object
-    public static void Display(MyArray tab)
+    void Display()
     {
-        Console.WriteLine("array content : ");
-        foreach (object elt in tab.data)
+        Console.WriteLine("Array content:");
+        for (int i = 0; i < length; i++)
         {
-            Console.WriteLine(elt);
+            Console.WriteLine(data[i]);
         }
     }
-    
+
     // Return length of the array
-    public int GetLength()
+    int GetLength()
     {
-        return this.length;
+        return length;
     }
-    
+
     // Return element at specified index
-    public Object GetValue(int index)
+    object GetValue(int index)
     {
-        if (index >= 0 && index < this.length)
+        if (index >= 0 && index < length)
         {
-            return this.data[index];
+            return data[index];
         }
         throw new IndexOutOfRangeException("Index out of range");
     }
-    
+
     // Add element at the end of the array
-    public void Push(object value)
+    void Push(object value)
     {
-        if (this.capacity == this.length)
+        if (capacity == length)
         {
-            this.capacity *= 2;
-            object[] temp = new object[this.length];
-            Array.Copy(this.data, temp, this.length);
-            this.data = new object[this.capacity];
-            Array.Copy(temp, this.data, this.length);
+            capacity *= 2;
+            object[] newData = new object[capacity];
+            Array.Copy(data, newData, length);
+            data = newData;
         }
-        this.data[this.length] = value;
-        this.length++; 
+        data[length] = value;
+        length++;
     }
-    
+
     // Remove and return last element of the array
-    public object Pop()
+    object Pop()
     {
-        if (this.length > 0)
+        if (length > 0)
         {
-            object item = this.data[this.length - 1];
-            this.data[this.length - 1] = null;
-            this.length--;
+            object item = data[length - 1];
+            object[] newData = new object[--length];
+            Array.Copy(data, newData, length);
+            data = newData;
             return item;
         }
 
-        throw new Exception("Array is empty");
+        throw new InvalidOperationException("Array is empty");
     }
-    
-    // Shift index of object to left
-    public void Shift(object[] objectDict, int size, int number)
+
+    // Shift index of object to the left
+    void Shift(int index)
     {
-        for (int i = number; i < size - 1; i++) {
-            objectDict[i] = objectDict[i + 1];
+        for (int i = index; i < length - 1; i++)
+        {
+            data[i] = data[i + 1];
         }
     }
-    
+
     // Delete element at specified index
-    public void Delete(int index)
+    void Delete(int index)
     {
-        if (index >= 0 && index < this.length)
+        if (index >= 0 && index < length)
         {
-            Shift(this.data, this.length, index);
-            this.data[this.length - 1] = null;
-            length--;
+            Shift(index);
+            object[] newData = new object[--length];
+            Array.Copy(data, newData, length);
+            data = newData;
         }
         else
         {
             throw new IndexOutOfRangeException("Index out of range");
         }
     }
-    
-    void Main(string[] args)
+
+    public static void main(string[] args)
     {
         MyArray arr = new MyArray();
         arr.Push(45);
@@ -100,12 +101,12 @@ public class MyArray
         arr.Push(50);
         arr.Push(100);
         arr.Push(27);
-        Console.WriteLine("size of array: " + arr.GetLength());
-        Console.WriteLine("get elt at 1: " + arr.GetValue(2));
-        Display(arr);
-        Console.WriteLine("removed last elt (27) and returned it: " + arr.Pop());
-        Display(arr);
-        arr.Delete(1);
-        Display(arr);
+        Console.WriteLine("Size of array: " + arr.GetLength());
+        Console.WriteLine("Get element at index 2: " + arr.GetValue(2));
+        arr.Display();
+        Console.WriteLine("Removed last element (27) and returned it: " + arr.Pop());
+        arr.Display();
+        arr.Delete(1); // Deletes the element at index 1
+        arr.Display();
     }
 }

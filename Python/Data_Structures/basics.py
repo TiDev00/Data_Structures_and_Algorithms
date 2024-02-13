@@ -42,6 +42,7 @@ t0 = len(arrlist)
 arrlist.remove(5)   # remove first occurence of value 5
 arrlist.pop()   # remove elt at index (last index default)
 arrlist.pop(0)  # remove first elt
+arrlist.insert(2, 3)
 c0 = 2 in arrlist
 r0 = arrlist[2]
 arrlist[0] = 10

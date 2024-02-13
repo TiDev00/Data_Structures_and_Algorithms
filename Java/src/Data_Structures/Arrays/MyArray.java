@@ -3,37 +3,31 @@ package Data_Structures.Arrays;
 import java.util.*;
 
 public class MyArray {
-    private int capacity;
-    private int length;
-    private Object[] data;
+    int capacity;
+    int length;
+    Object[] data;
 
 
-    public MyArray()
-    {
+    public MyArray() {
         capacity = 1;
         length = 0;
         data = new Object[capacity];
     }
 
     // Display elements of the object
-    public static void Display(MyArray tab)
+    void display()
     {
-        System.out.println("array content : ");
-        for(Object elt : tab.data)
-        {
-            System.out.println(elt);
-        }
+        System.out.println(Arrays.toString(this.data));
     }
 
     // Return length of the array
-    public int GetLength()
+    int getLength()
     {
         return this.length;
     }
 
     // Return element at specified index
-    public Object GetValue(int index)
-    {
+    Object getValue(int index) {
         if (index >= 0 && index < this.length)
         {
             return this.data[index];
@@ -42,11 +36,10 @@ public class MyArray {
     }
 
     // Add element at the end of the array
-    public void Push(Object value)
-    {
+    void push(Object value) {
         if (this.capacity == this.length)
         {
-            this.capacity += 1;
+            this.capacity *= 2;
             this.data = Arrays.copyOf(this.data, capacity);
         }
         this.data[this.length] = value;
@@ -54,12 +47,13 @@ public class MyArray {
     }
 
     // Remove and return last element of the array
-    public Object Pop() {
+    Object pop() {
         if (this.length > 0)
         {
             Object item = this.data[this.length - 1];
-            this.data[this.length - 1] = null;
+            this.data = Arrays.copyOf(this.data, this.length - 1);
             this.length--;
+            this.capacity = this.length;
             return item;
         }
 
@@ -67,41 +61,37 @@ public class MyArray {
     }
 
     // Shift index of object to left
-    public static void Shift(Object[] objectDict, int size, int number)
-    {
+    void shift(Object[] objectDict, int size, int number) {
         for (int i = number; i < size - 1; i++) {
             objectDict[i] = objectDict[i + 1];
         }
     }
 
     // Delete element at specified index
-    public void Delete(int index)
-    {
-        if (index >= 0 && index < this.length)
-        {
-            Shift(this.data, this.length, index);
-            this.data[this.length - 1] = null;
-            length--;
-        }
-        else
-        {
+    void delete(int index) {
+        if (index >= 0 && index < this.length) {
+            shift(this.data, this.length, index);
+            this.data = Arrays.copyOf(this.data, this.length - 1);
+            this.length--;
+            this.capacity = this.length;
+        } else {
             throw new IndexOutOfBoundsException("Index out of range");
         }
     }
 
     public static void main(String[] args) {
         MyArray arr = new MyArray();
-        arr.Push(45);
-        arr.Push(10);
-        arr.Push(50);
-        arr.Push(100);
-        arr.Push(27);
-        System.out.println("size of array: " + arr.GetLength());
-        System.out.println("get elt at 1: " + arr.GetValue(1));
-        Display(arr);
-        System.out.println("removed last elt (27) and returned it: " + arr.Pop());
-        Display(arr);
-        arr.Delete(2);
-        Display(arr);
+        arr.push(45);
+        arr.push(10);
+        arr.push(50);
+        arr.push(100);
+        arr.push(27);
+        System.out.println("size of array: " + arr.getLength());
+        System.out.println("get elt at 1: " + arr.getValue(1));
+        arr.display();
+        System.out.println("removed last elt (27) and returned it: " + arr.pop());
+        arr.display();
+        arr.delete(2);
+        arr.display();
     }
 }

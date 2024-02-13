@@ -2,7 +2,7 @@ namespace CSharp.Data_Structures;
 
 public class basics
 {
-    void Main(string[] args)
+    void main(string[] args)
     {
         char carac = 'a';
         bool test = true;

@@ -2,7 +2,7 @@ namespace CSharp.Data_Structures.Arrays;
 
 public class exercices
 {
-    public static String reverseString(String word)
+    public static String ReverseString(String word)
     {
         String reversedWord = "";
         for (int i = word.Length - 1; i >= 0; i--)
@@ -12,7 +12,7 @@ public class exercices
         return reversedWord;
     }
 
-    public static int[] mergeSortedArrays(int[] tab1, int[]tab2)
+    public static int[] MergeSortedArrays(int[] tab1, int[]tab2)
     {
         if (tab1.Length == 0) {
             return tab2;
@@ -52,10 +52,10 @@ public class exercices
         return finalArray;
     }
     
-    public static void Main(String[] args) {
-        Console.WriteLine(reverseString("1234"));
+    public static void main(String[] args) {
+        Console.WriteLine(ReverseString("1234"));
         
-        foreach(int elt in mergeSortedArrays(new int[] { 1, 2, 3 }, new int[] { 2, 4, 4, 15, 17 })){
+        foreach(int elt in MergeSortedArrays(new int[] { 1, 2, 3 }, new int[] { 2, 4, 4, 15, 17 })){
             Console.Write(elt + " ");
         }
     }

@@ -59,7 +59,7 @@ class MyHashTable
         }
         if (!keyFound)
         {
-            bucket.Data.Add(new object[] { key, value });
+            bucket.Data.Add(new[] { key, value });
         }
     }
     
@@ -109,7 +109,7 @@ class MyHashTable
         }
     }
 
-    static void Main(string[] args)
+    static void main(string[] args)
     {
         MyHashTable hashTable = new MyHashTable();
         hashTable.Put("clé", 5);

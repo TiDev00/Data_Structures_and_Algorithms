@@ -15,21 +15,18 @@ public class MyArray {
     }
 
     // Display elements of the object
-    void display()
-    {
+    void display() {
         System.out.println(Arrays.toString(this.data));
     }
 
     // Return length of the array
-    int getLength()
-    {
+    int getLength() {
         return this.length;
     }
 
     // Return element at specified index
     Object getValue(int index) {
-        if (index >= 0 && index < this.length)
-        {
+        if (index >= 0 && index < this.length) {
             return this.data[index];
         }
         throw new IndexOutOfBoundsException("Index out of range");
@@ -37,8 +34,7 @@ public class MyArray {
 
     // Add element at the end of the array
     void push(Object value) {
-        if (this.capacity == this.length)
-        {
+        if (this.capacity == this.length) {
             this.capacity *= 2;
             this.data = Arrays.copyOf(this.data, capacity);
         }
@@ -48,8 +44,7 @@ public class MyArray {
 
     // Remove and return last element of the array
     Object pop() {
-        if (this.length > 0)
-        {
+        if (this.length > 0) {
             Object item = this.data[this.length - 1];
             this.data = Arrays.copyOf(this.data, this.length - 1);
             this.length--;
